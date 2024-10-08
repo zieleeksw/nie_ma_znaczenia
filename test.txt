@@ -1,1 +1,4 @@
 Gdzie dwoch sie bije tam trzeci korzysta
+test1
+test2
+test3
