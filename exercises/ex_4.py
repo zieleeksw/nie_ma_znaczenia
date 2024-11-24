@@ -5,5 +5,6 @@ informację jako typ logiczny bool
 '''
 
 
-def is_sum_of_first_and_second_higher_than_third(first: int, second: int, third: int) -> bool:
+def is_sum_of_first_and_second_higher_than_third(
+        first: int, second: int, third: int) -> bool:
     return (first + second) > third

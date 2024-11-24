@@ -12,4 +12,5 @@ from exercises.ex_4 import is_sum_of_first_and_second_higher_than_third
     (-5, -5, -10, False)
 ])
 def test_is_even(first: int, second: int, third: int, expected: bool) -> None:
-    assert is_sum_of_first_and_second_higher_than_third(first, second, third) == expected
+    assert (is_sum_of_first_and_second_higher_than_third(first, second, third)
+            == expected)
