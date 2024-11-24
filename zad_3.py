@@ -7,5 +7,5 @@ def print_even(numbers: list[int]):
             print(number)
 
 
-numbers = list(range(1,11))
+numbers = list(range(1, 11))
 print_even(numbers)

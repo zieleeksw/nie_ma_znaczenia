@@ -6,5 +6,5 @@ def print_every_second_element(numbers: list[int]):
         print(numbers[i])
 
 
-numbers = list(range(1,11))
+numbers = list(range(1, 11))
 print_every_second_element(numbers)
