@@ -7,4 +7,8 @@ class House(Property):
         self.plot = plot
 
     def __str__(self):
-        return f"House [area={self.area}, rooms={self.rooms}, price={self.price}, address={self.address}, plot={self.plot}]"
+        return (f"House [area={self.area}, "
+                f"rooms={self.rooms}, "
+                f"price={self.price}, "
+                f"address={self.address}, "
+                f"plot={self.plot}]")

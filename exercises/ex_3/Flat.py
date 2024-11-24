@@ -7,4 +7,8 @@ class Flat(Property):
         self.floor = floor
 
     def __str__(self):
-        return f"Flat [area={self.area}, rooms={self.rooms}, price={self.price}, address={self.address}, floor={self.floor}]"
+        return (f"Flat [area={self.area}, "
+                f"rooms={self.rooms}, "
+                f"price={self.price}, "
+                f"address={self.address}, "
+                f"floor={self.floor}]")
