@@ -1,7 +1,8 @@
 import cv2
 import pytesseract
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = \
+    r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
 def preprocess_image(image, method: str):
@@ -10,24 +11,51 @@ def preprocess_image(image, method: str):
         return cv2.medianBlur(image, 3)
     elif method == "gaussian_threshold":
         blurred = cv2.GaussianBlur(image, (5, 5), 0)
-        return cv2.threshold(blurred,
-                     0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+        return cv2.threshold(
+            blurred,
+            0,
+            255,
+            cv2.THRESH_BINARY + cv2.THRESH_OTSU
+        )[1]
     elif method == "bilateral_threshold":
-        filtered = cv2.bilateralFilter(image, 5, 75, 75)
-        return cv2.threshold(filtered,
-                     0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+        filtered = cv2.bilateralFilter(
+            image, 5, 75, 75)
+        return cv2.threshold(
+            filtered,
+            0,
+            255,
+            cv2.THRESH_BINARY + cv2.THRESH_OTSU
+        )[1]
     elif method == "adaptive_gaussian":
         blurred = cv2.GaussianBlur(image, (5, 5), 0)
-        return cv2.adaptiveThreshold(blurred,
-                  255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 2)
+        return cv2.adaptiveThreshold(
+            blurred,
+            255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY,
+            31,
+            2
+        )
     elif method == "adaptive_bilateral":
-        filtered = cv2.bilateralFilter(image, 9, 75, 75)
-        return cv2.adaptiveThreshold(filtered,
-                  255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 2)
+        filtered = cv2.bilateralFilter(
+            image, 9, 75, 75)
+        return cv2.adaptiveThreshold(
+            filtered,
+            255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY, 31,
+            2
+        )
     elif method == "adaptive_median":
         blurred = cv2.medianBlur(image, 3)
-        return cv2.adaptiveThreshold(blurred,
-                255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 2)
+        return cv2.adaptiveThreshold(
+            blurred,
+            255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY,
+            31,
+            2
+        )
     else:
         raise ValueError(f"Nieznana metoda przetwarzania: {method}")
 
